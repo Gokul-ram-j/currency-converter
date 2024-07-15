@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="intro row ">
+        
+        <div class=" col-lg-6 col-md-12 col-sm-12 text-center p-5">
+            <div class="intro-img">
+                <img src="./assests/intro-bg.png" alt="">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="intro-context">
+                <h1>CURRENCY CONVERSION</h1>
+                <p><img src="./assests/bulletin.png" alt="" width="25px" height="25px">You can effortlessly convert between any two currencies from around the world. Our real-time data ensures that you always have the most current exchange rates at your disposal, allowing you to make informed decisions with confidence.</p>
+                <p><img src="./assests/bulletin.png" alt="" width="25px" height="25px">Experience the convenience and reliability of my website today, and unlock a world of effortless currency conversion</p>
+            </div>
+        </div>
+    </div>
+    <div class="outer-container mt-3 mb-3">
+        <div class="container">
+            <div class="exchange-container">
+                <select   id="from" class="from">
+                </select>
+                <button class="exchange-btn">
+                    <video class="exchange-sign" src="./assests/exchange.mp4" autoplay muted loop width="90%" height="90%"></video>
+                </button>
+                <select  id="to" class="to">
+                </select>
+            </div>
+            <div class="value-container">
+                <input class="amt" type="number" min="1">
+                <button class="convert-btn">CONVERT</button>
+            </div>
+    
+            <div class="output-container">
+            </div>
+        </div>
+    </div>
+
+    <div class="all-details-container row p-1">
+        <!-- <div class="col-sm-6 col-md-3 col-lg-2">
+            <div class="detail ml-2">
+                <img src="https://flagsapi.com/IN/flat/64.png">
+                <p>India</p>
+                <p>$1 </p>
+                <p>=</p> 
+                <p>$21</p>
+            </div>
+        </div> -->
+    </div>
+
+
+    
+    
+    
+    <script src="./app.js"></script>
+    <script src="./bootstrap.bundle.js"></script>
+</body>
+</html>
