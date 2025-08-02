@@ -4,64 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./bootstrap.min.css">
-    <title>Currency Converter</title>
+    <title>Currency Converter Pro</title>
 </head>
 <body>
-    
-    <div class="intro row ">
-        
-        <div class=" col-lg-6 col-md-12 col-sm-12 text-center p-5">
-            <div class="intro-img">
-                <img src="./assests/intro-bg.png" alt="">
-            </div>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-            <div class="intro-context">
-                <h1>CURRENCY CONVERSION</h1>
-                <p><img src="./assests/bulletin.png" alt="" width="25px" height="25px">You can effortlessly convert between any two currencies from around the world. Our real-time data ensures that you always have the most current exchange rates at your disposal, allowing you to make informed decisions with confidence.</p>
-                <p><img src="./assests/bulletin.png" alt="" width="25px" height="25px">Experience the convenience and reliability of my website today, and unlock a world of effortless currency conversion</p>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loader">
+                <div class="currency-symbols">
+                    <span class="symbol">$</span>
+                    <span class="symbol">€</span>
+                    <span class="symbol">£</span>
+                    <span class="symbol">¥</span>
+                </div>
+            </div>
+            <h2 class="loading-text">Loading Currency Data...</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
         </div>
     </div>
-    <div class="outer-container mt-3 mb-3">
-        <div class="container">
-            <div class="exchange-container">
-                <select   id="from" class="from">
-                </select>
-                <button class="exchange-btn">
-                    <video class="exchange-sign" src="./assests/exchange.mp4" autoplay muted loop width="90%" height="90%"></video>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-word">CURRENCY</span>
+                            <span class="title-word">CONVERTER</span>
+                            <span class="title-accent">PRO</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Real-time currency conversion with live exchange rates from around the world
+                        </p>
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🌍</div>
+                                <span>180+ Currencies</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚡</div>
+                                <span>Real-time Rates</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <span>Live Charts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="currency-globe">
+                            <div class="globe-ring ring-1"></div>
+                            <div class="globe-ring ring-2"></div>
+                            <div class="globe-ring ring-3"></div>
+                            <div class="globe-center">
+                                <span class="globe-symbol">💱</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Converter Section -->
+        <section class="converter-section">
+            <div class="converter-container">
+                <div class="converter-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Currency Converter</h2>
+                        <div class="last-updated">
+                            <span class="update-indicator"></span>
+                            <span class="update-text" id="lastUpdated">Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="converter-form">
+                        <div class="currency-input-group">
+                            <div class="currency-selector">
+                                <label class="input-label">From Currency</label>
+                                <div class="select-wrapper">
+                                    <select id="fromCurrency" class="currency-select">
+                                        <option value="">Select Currency...</option>
+                                    </select>
+                                    <div class="select-flag" id="fromFlag"></div>
+                                </div>
+                            </div>
+                            
+                            <button class="swap-button" id="swapButton">
+                                <div class="swap-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M17 2.1l4 4-4 4"/>
+                                        <path d="M3 12.2h18"/>
+                                        <path d="M7 21.9l-4-4 4-4"/>
+                                        <path d="M21 11.8H3"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            
+                            <div class="currency-selector">
+                                <label class="input-label">To Currency</label>
+                                <div class="select-wrapper">
+                                    <select id="toCurrency" class="currency-select">
+                                        <option value="">Select Currency...</option>
+                                    </select>
+                                    <div class="select-flag" id="toFlag"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="amount-input-group">
+                            <label class="input-label">Amount</label>
+                            <div class="amount-wrapper">
+                                <input type="number" id="amountInput" class="amount-input" placeholder="Enter amount" value="1" min="0" step="0.01">
+                                <button class="convert-button" id="convertButton">
+                                    <span class="button-text">Convert</span>
+                                    <div class="button-ripple"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conversion-result" id="conversionResult">
+                        <div class="result-display">
+                            <div class="result-from">
+                                <span class="result-amount" id="fromAmount">1</span>
+                                <span class="result-currency" id="fromCurrencyName">USD</span>
+                            </div>
+                            <div class="result-equals">=</div>
+                            <div class="result-to">
+                                <span class="result-amount" id="toAmount">0.00</span>
+                                <span class="result-currency" id="toCurrencyName">EUR</span>
+                            </div>
+                        </div>
+                        <div class="exchange-rate">
+                            <span class="rate-text" id="exchangeRate">1 USD = 0.85 EUR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Convert Buttons -->
+                <div class="quick-convert">
+                    <h3 class="quick-title">Quick Convert</h3>
+                    <div class="quick-buttons">
+                        <button class="quick-btn" data-amount="10">$10</button>
+                        <button class="quick-btn" data-amount="50">$50</button>
+                        <button class="quick-btn" data-amount="100">$100</button>
+                        <button class="quick-btn" data-amount="500">$500</button>
+                        <button class="quick-btn" data-amount="1000">$1K</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Currencies Grid -->
+        <section class="currencies-section">
+            <div class="currencies-container">
+                <div class="section-header">
+                    <h2 class="section-title">Popular Currencies</h2>
+                    <p class="section-subtitle">Live exchange rates for major world currencies</p>
+                </div>
+                
+                <div class="currencies-grid" id="currenciesGrid">
+                    <!-- Currency cards will be populated by JavaScript -->
+                </div>
+                
+                <button class="show-all-btn" id="showAllBtn">
+                    <span>Show All Currencies</span>
+                    <div class="btn-arrow">→</div>
                 </button>
-                <select  id="to" class="to">
-                </select>
             </div>
-            <div class="value-container">
-                <input class="amt" type="number" min="1">
-                <button class="convert-btn">CONVERT</button>
-            </div>
-    
-            <div class="output-container">
-            </div>
-        </div>
+        </section>
+
+       
     </div>
 
-    <div class="all-details-container row p-1">
-        <!-- <div class="col-sm-6 col-md-3 col-lg-2">
-            <div class="detail ml-2">
-                <img src="https://flagsapi.com/IN/flat/64.png">
-                <p>India</p>
-                <p>$1 </p>
-                <p>=</p> 
-                <p>$21</p>
-            </div>
-        </div> -->
-    </div>
-
-
-    
-    
-    
     <script src="./app.js"></script>
-    <script src="./bootstrap.bundle.js"></script>
 </body>
 </html>
